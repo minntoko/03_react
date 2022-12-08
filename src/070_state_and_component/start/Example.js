@@ -1,10 +1,14 @@
 import { useState } from "react";
 
 const Example = () => {
+  const [toggle, setToggle] = useState(true);
+  const toggleComponent = () => {
+    setToggle(pv => !pv);
+  }
   return (
     <>
-      <Count title = 'A'></Count>
-      <Count title = 'B'></Count>
+      <button onClick={toggleComponent}>toggle</button>
+      {toggle ? <Count key="A" title = 'A'></Count>: <Count key="B" title = 'B'></Count>}
     </>
   )
 }
